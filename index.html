@@ -56,7 +56,7 @@
               class="btn btn-primary btn-lg"
               href="#"
               role="button"
-              onclick="handleLearnMoreClick()"
+              id="header-button"
               >Learn more</a
             >
           </div>
@@ -198,12 +198,53 @@
           });
         }
 
-        function handleLearnMoreClick() {
-          const jumbotron = document.getElementById("jumbotron");
-          jumbotron.style.backgroundColor = "#343a40";
-          jumbotron.style.display = "flex";
-          jumbotron.style.justifyContent = "flex-end";
-        }
+        var buttonHeader = document.getElementById("header-button");
+
+        buttonHeader.addEventListener("click", function () {
+          var jumbotron = document.getElementById("jumbotron");
+          jumbotron.classList.remove("jumbotron");
+          jumbotron.classList.add("jumbotronAlternative");
+        });
+      });
+
+      const buttons1 = document.querySelectorAll(".btn-primary");
+
+      buttons1.forEach(function (button) {
+        button.addEventListener("click", function () {
+          button.classList.remove("btn-primary");
+          button.classList.add("btn-success");
+        });
+      });
+
+      const listItems = document.querySelectorAll("#myList .list-group-item");
+
+      listItems.forEach(function (item) {
+        item.addEventListener("click", function () {
+          listItems.forEach(function (item) {
+            item.classList.remove("active");
+          });
+
+          item.classList.add("active");
+        });
+      });
+
+      const buttonGroup = document.getElementById("button-group");
+
+      const buttons = buttonGroup.getElementsByTagName("button");
+
+      for (let button of buttons) {
+        button.addEventListener("click", function () {
+          buttonGroup.classList.remove("btn-group-vertical");
+          buttonGroup.classList.add("btn-group-horizontal");
+        });
+      }
+      var buttonHeaders = document.getElementById("button-header");
+
+      buttonHeaders.addEventListener("click", function () {
+        var element = document.getElementById("jumbotron");
+
+        elemento.classList.remove("jumbotron");
+        elemento.classList.add("jumbotronAlternative");
       });
     </script>
   </body>
